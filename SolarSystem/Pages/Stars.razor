@@ -1,17 +1,55 @@
 ﻿@page "/stars"
+@using System.Xml
+@using System.ServiceModel
+@using System.ServiceModel.Syndication
 
-<h1>Stars</h1>
+<h1 style="text-align: center">Upcoming Celestial Events</h1>
+<h3 style="text-align: center">Days till full moon: @FindDaysTillFullMoon</h3>
 
-<p role="status">Current count: @radiusInKilometers</p>
+<br />
 
-<button class="btn btn-primary">Click me</button>
+@{
+    <h2 style="text-align: center">NASA Solar system RSS feed:</h2>
+    <br />
 
+    string url = "https://www.nasa.gov/rss/dyn/solar_system.rss";
 
-@code {
-	private int radiusInKilometers = 0;
+    XmlReader reader = XmlReader.Create(url);
+    SyndicationFeed feed = SyndicationFeed.Load(reader);
+    reader.Close();
 
-    private void Count()
+    foreach (SyndicationItem item in feed.Items)
     {
-        radiusInKilometers++;
+        String subject = item.Title.Text;    
+        String summary = item.Summary.Text;
+
+        // @Html.LabelFor(m => item.Title.Text <br />)
+        <h5 style="text-align: center">@subject</h5>
+        <p style="text-align: center">@summary</p>
+    }   
+}
+
+@code{
+    public string FindDaysTillFullMoon()
+    {
+        DateTime today = DateTime.Now;
+
+        // Full Moon Phase Sept 2021
+        DateTime firstFullMoon = new DateTime(2021, 08, 22, 08, 22, 0);
+
+        // Full moons are *about* every 29.5 days
+        int days = today.Subtract(firstFullMoon).Days;
+
+        var moonsAgo = days / 29.5;
+
+        // Round up since we are looking for the next full moon
+        var fullMoonsAgo = Math.Ceiling(moonsAgo);
+        TimeSpan daysTill = new TimeSpan();
+
+        var nextFullMoon = firstFullMoon.AddDays(29.5 * fullMoonsAgo);
+        daysTill = nextFullMoon.Subtract(today);
+
+        return daysTill.TotalDays.ToString();
+
     }
 }

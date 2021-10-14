@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0-rc.2.21480.5" />
+  </ItemGroup>
+
 </Project>
