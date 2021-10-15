@@ -58,8 +58,8 @@
 
     public string FindVisiblePlanets()
     {
-        string fileName = "C:\\Code\\Demo\\2021 VSLaunch and NETConf\\BlazorServer SolarSystem2\\SolarSystem\\SolarSystem\\Data\\VisiblePlanetsData.json";
-        using FileStream openStream = File.OpenRead(fileName);
+        string filePath = Path.GetFullPath("Data\\VisiblePlanetsData.json");
+        using FileStream openStream = File.OpenRead(filePath);
         DateTime today = DateTime.Today;
 
         VisiblePlanets[] planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
