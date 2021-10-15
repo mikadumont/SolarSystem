@@ -4,16 +4,20 @@
 @using System.ServiceModel.Syndication
 @using System.Text.Json
 
-<h1 style="text-align: center">Upcoming Celestial Events</h1>
-<br />
-<h3 style="text-align: center">Days till full moon: @FindDaysTillFullMoon()</h3>
+<div style="text-align: center; background:radial-gradient(rgba(0,0,0,1), rgba(0,0,0,0));">
 
+<h1>Upcoming Celestial Events</h1>
 <br />
-    <h3 style="text-align: center">Planets Visible Today:</h3>
-    <p style="text-align: center">@FindVisiblePlanets()</p>
+
+<h3>Days till full moon: @FindDaysTillFullMoon()</h3>
+<br />
+
+<h3>Planets Visible Today:</h3>
+<p>@FindVisiblePlanets()</p>
+<br />
 
 @{
-    <h3 style="text-align: center">NASA Solar system RSS feed:</h3>
+    <h3>NASA Solar system RSS feed:</h3>
     <br />
 
     string url = "https://www.nasa.gov/rss/dyn/solar_system.rss";
@@ -28,10 +32,17 @@
         String summary = item.Summary.Text;
 
         // @Html.LabelFor(m => item.Title.Text <br />)
-        <h5 style="text-align: center">@subject</h5>
-        <p style="text-align: center">@summary</p>
+        <h5>@subject</h5>
+        <p>@summary</p>
     }
+    <br>
+
+    <div style="position: absolute; bottom: 5px;">
+        Photo by Lubo Minar on Unsplash
+    </div>
 }
+
+</div>
 
 @code {
     public string FindDaysTillFullMoon()
