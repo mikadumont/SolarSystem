@@ -64,14 +64,14 @@
 
         VisiblePlanets[] planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
 
-        string todaysVisiblePlanets = "";
+        string todaysVisiblePlanets = "|  ";
 
         foreach (VisiblePlanets planet in planetDates)
         {
             planet.ParseDateTime();
             if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
             {
-                todaysVisiblePlanets += planet.Planet + "   |  "; // .start < today < planet.end
+                todaysVisiblePlanets += planet.Planet + "   |  ";
             }
         }
 
