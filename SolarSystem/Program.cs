@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+
+using SolarSystem;
 using SolarSystem.Data;
+
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 

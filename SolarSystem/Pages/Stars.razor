@@ -2,14 +2,18 @@
 @using System.Xml
 @using System.ServiceModel
 @using System.ServiceModel.Syndication
+@using System.Text.Json
 
 <h1 style="text-align: center">Upcoming Celestial Events</h1>
+<br />
 <h3 style="text-align: center">Days till full moon: @FindDaysTillFullMoon()</h3>
 
 <br />
+    <h3 style="text-align: center">Planets Visible Today:</h3>
+    <p style="text-align: center">@FindVisiblePlanets()</p>
 
 @{
-    <h2 style="text-align: center">NASA Solar system RSS feed:</h2>
+    <h3 style="text-align: center">NASA Solar system RSS feed:</h3>
     <br />
 
     string url = "https://www.nasa.gov/rss/dyn/solar_system.rss";
@@ -20,16 +24,16 @@
 
     foreach (SyndicationItem item in feed.Items)
     {
-        String subject = item.Title.Text;    
+        String subject = item.Title.Text;
         String summary = item.Summary.Text;
 
         // @Html.LabelFor(m => item.Title.Text <br />)
         <h5 style="text-align: center">@subject</h5>
         <p style="text-align: center">@summary</p>
-    }   
+    }
 }
 
-@code{
+@code {
     public string FindDaysTillFullMoon()
     {
         DateTime today = DateTime.Now;
@@ -44,12 +48,34 @@
 
         // Round up since we are looking for the next full moon
         var fullMoonsAgo = Math.Ceiling(moonsAgo);
-        TimeSpan daysTill = new TimeSpan();
 
         var nextFullMoon = firstFullMoon.AddDays(29.5 * fullMoonsAgo);
-        daysTill = nextFullMoon.Subtract(today);
+        var daysTill = nextFullMoon.Subtract(today).TotalDays;
 
-        return daysTill.TotalDays.ToString();
+        return Math.Floor(daysTill).ToString();
 
+    }
+
+    public string FindVisiblePlanets()
+    {
+        string fileName = "C:\\Code\\Demo\\2021 VSLaunch and NETConf\\BlazorServer SolarSystem2\\SolarSystem\\SolarSystem\\Data\\VisiblePlanetsData.json";
+        using FileStream openStream = File.OpenRead(fileName);
+        DateTime today = DateTime.Today;
+
+        VisiblePlanets[] planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
+
+        string todaysVisiblePlanets = "";
+
+        foreach (VisiblePlanets planet in planetDates)
+        {
+            planet.ParseDateTime();
+            if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+            {
+                todaysVisiblePlanets += planet.Planet + "   |  "; // .start < today < planet.end
+            }
+        }
+
+
+        return todaysVisiblePlanets;
     }
 }
