@@ -10,8 +10,6 @@
 <br />
 
 <h3>Days till full moon: @FindDaysTillFullMoon()</h3>
-<br />
-
 <h3>Planets Visible Today:</h3>
 <p>@FindVisiblePlanets()</p>
 <br />
@@ -31,12 +29,12 @@
         String subject = item.Title.Text;
         String summary = item.Summary.Text;
 
-        // @Html.LabelFor(m => item.Title.Text <br />)
         <h5>@subject</h5>
         <p>@summary</p>
+        <br />
     }
     <br>
-
+    
     <div style="position: absolute; bottom: 5px;">
         Photo by Lubo Minar on Unsplash
     </div>
@@ -86,7 +84,155 @@
             }
         }
 
-
         return todaysVisiblePlanets;
     }
 }
+
+@*<div style="font-color:blue; background:radial-gradient(rgba(128,128,128) 50%, rgba(0,0,0,0)) 60%;">
+    <table class="table table-bordered table-hover table-condensed">
+    <thead><tr><th title="Field #1">Planet</th>
+    <th title="Field #2">Time</th>
+    <th title="Field #3">VisibleDateStart</th>
+    <th title="Field #4">VisibleDateEnd</th>
+    </tr></thead>
+    <tbody><tr>
+    <td>Mercury</td>
+    <td>Morning</td>
+    <td>2/28/2021</td>
+    <td>3/20/2021</td>
+    </tr>
+    <tr>
+    <td>Mercury</td>
+    <td>Morning</td>
+    <td>6/27/2021</td>
+    <td>7/16/2021</td>
+    </tr>
+    <tr>
+    <td>Mercury</td>
+    <td>Morning</td>
+    <td>10/18/2021</td>
+    <td>11/1/2021</td>
+    </tr>
+    <tr>
+    <td>Mercury</td>
+    <td>Evening</td>
+    <td>1/15/2021</td>
+    <td>1/31/2021</td>
+    </tr>
+    <tr>
+    <td>Mercury</td>
+    <td>Evening</td>
+    <td>5/3/2021</td>
+    <td>5/24/2021</td>
+    </tr>
+    <tr>
+    <td>Mercury</td>
+    <td>Evening</td>
+    <td>8/31/2021</td>
+    <td>9/21/2021</td>
+    </tr>
+    <tr>
+    <td>Mercury</td>
+    <td>Evening</td>
+    <td>11/2/2021</td>
+    <td>12/31/2021</td>
+    </tr>
+    <tr>
+    <td>Venus</td>
+    <td>Morning</td>
+    <td>1/1/2021</td>
+    <td>1/23/2021</td>
+    </tr>
+    <tr>
+    <td>Venus</td>
+    <td>Evening</td>
+    <td>5/24/2021</td>
+    <td>12/31/2021</td>
+    </tr>
+    <tr>
+    <td>Mars</td>
+    <td>Morning</td>
+    <td>11/2/2021</td>
+    <td>12/31/2021</td>
+    </tr>
+    <tr>
+    <td>Mars</td>
+    <td>Evening</td>
+    <td>1/1/2021</td>
+    <td>8/22/2021</td>
+    </tr>
+    <tr>
+    <td>Jupiter</td>
+    <td>Morning</td>
+    <td>2/17/2021</td>
+    <td>8/19/2021</td>
+    </tr>
+    <tr>
+    <td>Jupiter</td>
+    <td>Evening</td>
+    <td>1/1/2021</td>
+    <td>1/9/2021</td>
+    </tr>
+    <tr>
+    <td>Jupiter</td>
+    <td>Evening</td>
+    <td>8/20/2021</td>
+    <td>12/31/2021</td>
+    </tr>
+    <tr>
+    <td>Saturn</td>
+    <td>Morning</td>
+    <td>2/10/2021</td>
+    <td>8/1/2021</td>
+    </tr>
+    <tr>
+    <td>Saturn</td>
+    <td>Evening</td>
+    <td>1/1/2021</td>
+    <td>1/6/2021</td>
+    </tr>
+    <tr>
+    <td>Saturn</td>
+    <td>Evening</td>
+    <td>8/1/2021</td>
+    <td>8/4/2021</td>
+    </tr>
+    <tr>
+    <td>Uranus</td>
+    <td>Morning</td>
+    <td>5/16/2021</td>
+    <td>11/3/2021</td>
+    </tr>
+    <tr>
+    <td>Uranus</td>
+    <td>Evening</td>
+    <td>1/1/2021</td>
+    <td>4/12/2021</td>
+    </tr>
+    <tr>
+    <td>Uranus</td>
+    <td>Evening</td>
+    <td>11/4/2021</td>
+    <td>12/31/2021</td>
+    </tr>
+    <tr>
+    <td>Neptune</td>
+    <td>Morning</td>
+    <td>3/27/2021</td>
+    <td>9/13/2021</td>
+    </tr>
+    <tr>
+    <td>Neptune</td>
+    <td>Evening</td>
+    <td>1/1/2021</td>
+    <td>2/23/2021</td>
+    </tr>
+    <tr>
+    <td>Neptune</td>
+    <td>Evening</td>
+    <td>9/14/2021</td>
+    <td>12/31/2021</td>
+    </tr>
+    </tbody></table>
+<br />
+</div>*@
