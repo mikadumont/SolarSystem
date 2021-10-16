@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using SolarSystem;
 
+using SolarSystemProgram;
+
 namespace SolarSystem
 {
     public class SolarSystemProgram
