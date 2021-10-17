@@ -6,39 +6,39 @@
 
 <div style="text-align: center; background:radial-gradient(rgba(0,0,0,1), rgba(0,0,0,0));">
 
-<h1>Upcoming Celestial Events</h1>
-<br />
-
-<h3>Days till full moon: @FindDaysTillFullMoon()</h3>
-<h3>Planets Visible Today:</h3>
-<p>@FindVisiblePlanets()</p>
-<br />
-
-@{
-    <h3>NASA Solar system RSS feed:</h3>
+    <h1>Upcoming Celestial Events</h1>
     <br />
 
-    string url = "https://www.nasa.gov/rss/dyn/solar_system.rss";
+    <h3>Days till full moon: @FindDaysTillFullMoon()</h3>
+    <h3>Planets Visible Today:</h3>
+    <p>@FindVisiblePlanets()</p>
+    <br />
 
-    XmlReader reader = XmlReader.Create(url);
-    SyndicationFeed feed = SyndicationFeed.Load(reader);
-    reader.Close();
-
-    foreach (SyndicationItem item in feed.Items)
-    {
-        String subject = item.Title.Text;
-        String summary = item.Summary.Text;
-
-        <h5>@subject</h5>
-        <p>@summary</p>
+    @{
+        <h3>NASA Solar system RSS feed:</h3>
         <br />
+
+        string url = "https://www.nasa.gov/rss/dyn/solar_system.rss";
+
+        XmlReader reader = XmlReader.Create(url);
+        SyndicationFeed feed = SyndicationFeed.Load(reader);
+        reader.Close();
+
+        foreach (SyndicationItem item in feed.Items)
+        {
+            String subject = item.Title.Text;
+            String summary = item.Summary.Text;
+
+            <h5>@subject</h5>
+            <p>@summary</p>
+            <br />
+        }
+        <br>
+
+        <div style="position: absolute; bottom: 5px;">
+            Photo by Lubo Minar on Unsplash
+        </div>
     }
-    <br>
-    
-    <div style="position: absolute; bottom: 5px;">
-        Photo by Lubo Minar on Unsplash
-    </div>
-}
 
 </div>
 
@@ -71,16 +71,19 @@
         using FileStream openStream = File.OpenRead(filePath);
         DateTime today = DateTime.Today;
 
-        VisiblePlanets[] planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
+        VisiblePlanets[]? planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
 
         string todaysVisiblePlanets = "|  ";
 
-        foreach (VisiblePlanets planet in planetDates)
+        if (planetDates != null)
         {
-            planet.ParseDateTime();
-            if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+            foreach (VisiblePlanets planet in planetDates)
             {
-                todaysVisiblePlanets += planet.Planet + "   |  ";
+                planet.ParseDateTime();
+                if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+                {
+                    todaysVisiblePlanets += planet.Planet + "   |  ";
+                }
             }
         }
 
@@ -234,5 +237,5 @@
     <td>12/31/2021</td>
     </tr>
     </tbody></table>
-<br />
-</div>*@
+    <br />
+    </div>*@

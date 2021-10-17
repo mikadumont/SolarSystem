@@ -19,16 +19,19 @@ namespace SolarSystem.Tests
             using FileStream openStream = File.OpenRead(filePath);
             DateTime today = DateTime.Today;
 
-            VisiblePlanets[] planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
+            VisiblePlanets[]? planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
 
             Console.WriteLine("Visible Planets:");
 
-            foreach (VisiblePlanets planet in planetDates)
+            if (planetDates != null)
             {
-                planet.ParseDateTime();
-                if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+                foreach (VisiblePlanets planet in planetDates)
                 {
-                    Console.WriteLine(planet.Planet);
+                    planet.ParseDateTime();
+                    if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+                    {
+                        Console.WriteLine(planet.Planet);
+                    }
                 }
             }
         }
