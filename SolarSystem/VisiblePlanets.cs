@@ -10,8 +10,8 @@ namespace SolarSystem
         public string VisibleDateStart { get; set; }
         public string VisibleDateEnd { get; set; }
 
-        public DateTime start { get; set; }
-        public DateTime end { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
 
         public void ParseDateTime()
         {
@@ -19,8 +19,8 @@ namespace SolarSystem
             {
                 try
                 {
-                    start = DateTime.Parse(VisibleDateStart);
-                    end = DateTime.Parse(VisibleDateEnd);
+                    Start = DateTime.Parse(VisibleDateStart);
+                    End = DateTime.Parse(VisibleDateEnd);
                 }
                 catch (FormatException)
                 {

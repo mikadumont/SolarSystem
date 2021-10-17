@@ -28,7 +28,7 @@ namespace SolarSystem.Tests
                 foreach (VisiblePlanets planet in planetDates)
                 {
                     planet.ParseDateTime();
-                    if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+                    if (today.CompareTo(planet.Start) > 0 && today.CompareTo(planet.End) < 0)
                     {
                         Console.WriteLine(planet.Planet);
                     }

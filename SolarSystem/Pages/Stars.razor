@@ -9,11 +9,10 @@
     <h1>Upcoming Celestial Events</h1>
     <br />
 
-    <h3>Days till full moon: @FindDaysTillFullMoon()</h3>
+    <h3>Days till full moon: @Moon.FindDaysTillFullMoon()</h3>
     <h3>Planets Visible Today:</h3>
     <p>@FindVisiblePlanets()</p>
     <br />
-
 
     @{
         <h3>NASA Solar system RSS feed:</h3>
@@ -45,28 +44,6 @@
 
 @code {
 
-    public string FindDaysTillFullMoon()
-    {
-        DateTime today = DateTime.Now;
-
-        // Full Moon Phase Sept 2021
-        DateTime firstFullMoon = new DateTime(2021, 08, 22, 08, 22, 0);
-
-        // Full moons are *about* every 29.5 days
-        int days = today.Subtract(firstFullMoon).Days;
-
-        var moonsAgo = days / 29.5;
-
-        // Round up since we are looking for the next full moon
-        var fullMoonsAgo = Math.Ceiling(moonsAgo);
-
-        var nextFullMoon = firstFullMoon.AddDays(29.5 * fullMoonsAgo);
-        var daysTill = nextFullMoon.Subtract(today).TotalDays;
-
-        return Math.Floor(daysTill).ToString();
-
-    }
-
     public string FindVisiblePlanets()
     {
         string filePath = Path.GetFullPath("Data\\VisiblePlanetsData.json");
@@ -82,7 +59,7 @@
             foreach (VisiblePlanets planet in planetDates)
             {
                 planet.ParseDateTime();
-                if (today.CompareTo(planet.start) > 0 && today.CompareTo(planet.end) < 0)
+                if (today.CompareTo(planet.Start) > 0 && today.CompareTo(planet.End) < 0)
                 {
                     todaysVisiblePlanets += planet.Planet + "   |  ";
                 }
@@ -115,7 +92,7 @@
             foreach (VisiblePlanets planet in planetDates)
             {
                 planet.ParseDateTime();
-                if (tomorrow.CompareTo(planet.start) > 0 && tomorrow.CompareTo(planet.end) < 0)
+                if (tomorrow.CompareTo(planet.Start) > 0 && tomorrow.CompareTo(planet.End) < 0)
                 {
                     tomorrowPlanets += planet.Planet + "   |  ";
                 }
