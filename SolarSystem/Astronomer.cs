@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
@@ -13,10 +13,10 @@ internal record Astronomer(string FirstName, string LastName, string? MiddleName
 [JsonSerializable(typeof(Astronomer))]
 internal partial class AstronomerJsonContext : JsonSerializerContext
 {
-    public override JsonTypeInfo? GetTypeInfo(Type type)
-    {
-        throw new NotImplementedException();
-    }
+    //public override JsonTypeInfo? GetTypeInfo(Type type)
+    //{
+    //    throw new NotImplementedException();
+    //}
 }
 
 class Program
@@ -31,6 +31,4 @@ class Program
         AstronomerJsonContext.Default.Astronomer.SerializeHandler!(writer, astronomer);
         writer.Flush();
     }
-}*/
-
-
+}
