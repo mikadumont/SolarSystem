@@ -5,13 +5,14 @@ namespace SolarSystem
 
     public class VisiblePlanets
     {
-        public string Planet { get; set; }
-        public string Time { get; set; }
-        public string VisibleDateStart { get; set; }
-        public string VisibleDateEnd { get; set; }
+        public string? Planet { get; set; }
+        public string? Time { get; set; }
+        public string? VisibleDateStart { get; set; }
+        public string? VisibleDateEnd { get; set; }
 
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
+
 
         public void ParseDateTime()
         {
@@ -25,6 +26,7 @@ namespace SolarSystem
                 catch (FormatException)
                 {
                     Console.WriteLine("Unable to convert '{0}'.", VisibleDateStart + "or" + VisibleDateEnd);
+                    //throw new FormatException();
                 }
             }
         }

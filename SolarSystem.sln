@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarSystem.Tests", "SolarS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E0112A36-763C-416E-A333-A108B76E021D}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		testenv.Dockerfile = testenv.Dockerfile
 		testEnvironments.json = testEnvironments.json
 	EndProjectSection
