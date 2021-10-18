@@ -53,9 +53,10 @@ namespace SolarSystem
 
                 Console.WriteLine(new DateTime(1970, 1, 1).ToString("d"));
 
+                //Light travels 300,000 kilometers per second!
                 int kilometers = 300000;
                 int second = 1;
-                //Light travels 300,000 kilometers per second!
+                
                 // One lightyear is 9.5 trillion km
                 //new
                 
