@@ -12,10 +12,6 @@
 	<PackageReference Include="TimeZoneConverter" Version="3.5.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

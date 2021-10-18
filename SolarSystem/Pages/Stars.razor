@@ -85,7 +85,7 @@
 
         VisiblePlanets[]? planetDates = JsonSerializer.Deserialize<VisiblePlanets[]>(openStream);
 
-        tomorrowPlanets = $"Visible planets for {tomorrow.Date.Month}/{tomorrow.Date.Day}/{tomorrow.Date.Year}:  ";
+        tomorrowPlanets = $"Visible planets for {tomorrow.ToString("d")}:  ";
 
         if (planetDates != null)
         {
