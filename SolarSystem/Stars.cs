@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace SolarSystem
+namespace SolarSystemProgram
 {
     public class Stars
     {
@@ -14,7 +14,8 @@ namespace SolarSystem
     {
         public void BigDipper(string ursaMajor, string ursaMinor, string Bootes, int radius)
         {
-
+            // TODO: Implement additional constellations
+            
         }
     }
 }

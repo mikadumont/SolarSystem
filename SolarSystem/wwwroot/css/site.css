@@ -2,6 +2,9 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-image: url('lubo-minar-38FgR7z7iKQ-unsplash.jpg');
+    background-size: 1500px 900px;
+    color: white;
 }
 
 h1:focus {

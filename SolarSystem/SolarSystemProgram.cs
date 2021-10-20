@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using SolarSystem;
 
+using SolarSystemProgram;
+
 namespace SolarSystem
 {
     public class SolarSystemProgram
@@ -39,7 +41,6 @@ namespace SolarSystem
                         Moon.CompletedOrbit();
                         Moon.CompletedRotation();
                         month++;
-
                     }
 
                     // The moon wanes and waxes mid-way
@@ -49,12 +50,41 @@ namespace SolarSystem
                         moon1.waxing = !moon1.waxing;
                     }
                 }
+
+                Console.WriteLine(new DateTime(1970, 1, 1).ToString("d"));
+
+                //Light travels 300,000 kilometers per second!
+                int kilometers = 300000;
+                int second = 1;
+                
+                // One lightyear is 9.5 trillion km
+                //new
+                
             }
         }
 
         public static bool IsLeapYear(int leapYear)
         {
             return (leapYear) % 4 == 0;
+        }
+
+        public struct LightYear
+        {
+            public int this[int i] => throw new NotImplementedException();
+            public LightYear(int kilometers, int second) => throw new NotImplementedException();
+            public static LightYear operator +(LightYear a) => throw new NotImplementedException();
+            public static LightYear operator -(LightYear a) => throw new NotImplementedException();
+            public static LightYear operator +(LightYear a, LightYear b) => throw new NotImplementedException();
+            public static LightYear operator -(LightYear a, LightYear b) => throw new NotImplementedException();
+            public static LightYear operator *(LightYear a, LightYear b) => throw new NotImplementedException();
+            public static LightYear operator /(LightYear a, LightYear b) => throw new NotImplementedException();
+            public static LightYear operator ==(LightYear a, LightYear b) => throw new NotImplementedException();
+            public static LightYear operator !=(LightYear a, LightYear b) => throw new NotImplementedException();
+            public static explicit operator int(LightYear b) => throw new NotImplementedException();
+            public static explicit operator float(LightYear b) => throw new NotImplementedException();
+            public override string ToString() => throw new NotImplementedException();
+            public override bool Equals(object obj) => throw new NotImplementedException();
+            public override int GetHashCode() => throw new NotImplementedException();
         }
 
     }
