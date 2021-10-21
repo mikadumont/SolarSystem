@@ -93,3 +93,6 @@ dotnet_style_qualification_for_property = false:suggestion
 
 # IDE2000: C#
 dotnet_diagnostic.IDE2000.severity = warning
+
+# CS8765: Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
+dotnet_diagnostic.CS8765.severity = suggestion
