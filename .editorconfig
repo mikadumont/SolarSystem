@@ -96,3 +96,6 @@ dotnet_diagnostic.IDE2000.severity = warning
 
 # CS8765: Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
 dotnet_diagnostic.CS8765.severity = suggestion
+
+# IDE0090: Use 'new(...)'
+dotnet_diagnostic.IDE0090.severity = suggestion

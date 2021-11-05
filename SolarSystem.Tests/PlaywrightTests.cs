@@ -1,8 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using System.Threading.Tasks;
-using Microsoft.Playwright.MSTest;
+﻿using System.Threading.Tasks;
 using Microsoft.Playwright;
+using Microsoft.Playwright.MSTest;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SolarSystem.Tests
 {
@@ -13,8 +12,7 @@ namespace SolarSystem.Tests
         public async Task RecorderGeneratedMSTest()
         {
             using var playwright = await Playwright.CreateAsync();
-            await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-            {
+            await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions {
                 Headless = false,
                 Channel = "msedge",
             });
@@ -40,9 +38,9 @@ namespace SolarSystem.Tests
         }
 
         [TestMethod]
-        public async Task NewRecordedWebUITest()
+        public Task NewRecordedWebUITest()
         {
-
+            return Task.CompletedTask;
         }
     }
 }

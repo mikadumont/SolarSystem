@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SolarSystem;
-
-using SolarSystemProgram;
+using SolarSystem.Pages;
 
 namespace SolarSystem
 {
@@ -56,10 +54,11 @@ namespace SolarSystem
                 //Light travels 300,000 kilometers per second!
                 int kilometers = 300000;
                 int second = 1;
-                
+
                 // One lightyear is 9.5 trillion km
-                //new
-                
+                // new LightYear(kilometers, second);
+                var ly = new LightYear(kilometers, second);
+
             }
         }
 
@@ -70,21 +69,23 @@ namespace SolarSystem
 
         public struct LightYear
         {
-            public int this[int i] => throw new NotImplementedException();
-            public LightYear(int kilometers, int second) => throw new NotImplementedException();
-            public static LightYear operator +(LightYear a) => throw new NotImplementedException();
-            public static LightYear operator -(LightYear a) => throw new NotImplementedException();
-            public static LightYear operator +(LightYear a, LightYear b) => throw new NotImplementedException();
-            public static LightYear operator -(LightYear a, LightYear b) => throw new NotImplementedException();
-            public static LightYear operator *(LightYear a, LightYear b) => throw new NotImplementedException();
-            public static LightYear operator /(LightYear a, LightYear b) => throw new NotImplementedException();
-            public static LightYear operator ==(LightYear a, LightYear b) => throw new NotImplementedException();
-            public static LightYear operator !=(LightYear a, LightYear b) => throw new NotImplementedException();
-            public static explicit operator int(LightYear b) => throw new NotImplementedException();
-            public static explicit operator float(LightYear b) => throw new NotImplementedException();
-            public override string ToString() => throw new NotImplementedException();
-            public override bool Equals(object obj) => throw new NotImplementedException();
-            public override int GetHashCode() => throw new NotImplementedException();
+            public int this[int a] => throw new Exception();
+            public LightYear(int kilometers, int second) => throw new Exception();
+            public static LightYear operator +(LightYear a) => throw new Exception();
+            public static LightYear operator -(LightYear a) => throw new Exception();
+            public static LightYear operator +(LightYear x, LightYear y) => throw new Exception();
+            public static LightYear operator -(LightYear x, LightYear y) => throw new Exception();
+            public static LightYear operator *(LightYear x, LightYear y) => throw new Exception();
+            public static LightYear operator /(LightYear x, LightYear y) => throw new Exception();
+            public static LightYear operator ==(LightYear x, LightYear y) => throw new Exception();
+            public static LightYear operator !=(LightYear x, LightYear y) => throw new Exception();
+            public static explicit operator int(LightYear b) => throw new Exception();
+            public static explicit operator float(LightYear b) => throw new Exception();
+            public string FromParsec() => throw new Exception();
+            public string ToParsec() => throw new Exception();
+            public override string ToString() => throw new Exception();
+            public override bool Equals(object obj) => throw new Exception();
+            public override int GetHashCode() => throw new Exception();
         }
 
     }

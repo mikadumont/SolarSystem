@@ -7,7 +7,7 @@ namespace SolarSystem
     /// Whitespace is      no longer    normalized
     /// </code>
     /// </summary>
-    public class Earth : Planet
+    public class Earth
     {
         public Earth()
         {
