@@ -1,11 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using System;
 using System.IO;
 using System.ServiceModel.Syndication;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Xml;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SolarSystem.Tests
 {

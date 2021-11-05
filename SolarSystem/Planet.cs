@@ -4,36 +4,15 @@ using System.Text.Json;
 public class Planet
 {
     public static void CompletedRotation() { }
-}
 
-public interface GasGiant
-{
-}
+    public double Diameter { get; set; }
+    public string? Composition { get; set; }    
+    public double Mass { get; set; }
 
-public class Mercury : Planet
-{
-}
-
-public class Venus : Planet
-{
-}
-
-public class Mars : Planet
-{
-}
-
-public class Jupiter : Planet, GasGiant
-{
-}
-
-public class Saturn : Planet, GasGiant
-{
-}
-
-public class Uranus : Planet, GasGiant
-{
-}
-
-public class Neptune : Planet, GasGiant
-{
+    public Planet(double diameter, string? composition, double mass)
+    {
+        Diameter = diameter;
+        Composition = composition;
+        Mass = mass;
+    }
 }

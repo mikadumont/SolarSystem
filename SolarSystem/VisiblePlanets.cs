@@ -13,7 +13,6 @@ namespace SolarSystem
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
 
-
         public void ParseDateTime()
         {
             if (VisibleDateStart != null && VisibleDateEnd != null)
